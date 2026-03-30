@@ -19,7 +19,7 @@ export default function ChatInput({ onSend, loading }) {
 
   return (
     <div className="p-4">
-      <div className={`glass rounded-2xl flex items-end gap-3 px-4 py-3 transition-all duration-200 focus-within:border-blue-500/40 focus-within:glow-sm`}>
+      <div className="bg-white border border-slate-200 rounded-2xl flex items-end gap-3 px-4 py-3 shadow-sm transition-all duration-200 focus-within:border-blue-400 focus-within:shadow-md focus-within:shadow-blue-50">
         <textarea
           ref={ref}
           rows={1}
@@ -28,12 +28,12 @@ export default function ChatInput({ onSend, loading }) {
           onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit() } }}
           disabled={loading}
           placeholder="Ask about parts, specs, policies, or installation guides..."
-          className="flex-1 bg-transparent text-sm text-slate-200 placeholder-slate-700 resize-none outline-none leading-relaxed"
+          className="flex-1 bg-transparent text-sm text-slate-700 placeholder-slate-300 resize-none outline-none leading-relaxed"
         />
         <button
           onClick={submit}
           disabled={!value.trim() || loading}
-          className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-150 disabled:opacity-30 disabled:cursor-not-allowed enabled:bg-blue-600 enabled:hover:bg-blue-500 enabled:hover:scale-105 enabled:shadow-lg enabled:shadow-blue-900/30"
+          className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-150 disabled:opacity-30 disabled:cursor-not-allowed enabled:bg-blue-600 enabled:hover:bg-blue-500 enabled:hover:scale-105 enabled:shadow-md enabled:shadow-blue-200"
         >
           {loading
             ? <Loader2 size={14} className="text-white animate-spin" />
@@ -41,7 +41,7 @@ export default function ChatInput({ onSend, loading }) {
           }
         </button>
       </div>
-      <p className="text-center text-xs text-slate-800 mt-1.5">Enter to send · Shift+Enter for new line</p>
+      <p className="text-center text-xs text-slate-300 mt-1.5">Enter to send · Shift+Enter for new line</p>
     </div>
   )
 }
